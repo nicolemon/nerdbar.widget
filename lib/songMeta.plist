@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>albumName</key>
+	<string>Schumann, Chopin, Rachmaninov: Works for Piano Solo</string>
+	<key>artistName</key>
+	<string>Robert Schumann</string>
+	<key>currentPosition</key>
+	<string>141</string>
+	<key>songChanged</key>
+	<string>false</string>
+	<key>songDuration</key>
+	<string>141</string>
+	<key>songName</key>
+	<string>Carnaval, Op. 9: No. 1. Preambule</string>
+</dict>
+</plist>

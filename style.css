@@ -1,0 +1,65 @@
+"""
+    <div class="bar">
+        <div class="spotify">
+            <span class="artist text"></span>
+            <span class="icon"></span>
+            <span class="song text"></span>
+            <span class="progress"></span>
+        </div>
+        <div class="wifi">
+            <span class="icon"></span>
+            <span class="ssid text"></span>
+        </div>
+        <div class="battery">
+            <span class="icon"></span>
+            <span class="batterycharge text"></span>
+        </div>
+        <div class="memory">
+            <span class="label">mem</span>
+            <span class="text"></span>
+        </div>
+        <div class="cpu">
+            <span class="label">cpu</span>
+            <span class="text"></span>
+        </div>
+        <div class="date">
+            <span class="text"></span>
+        </div>
+        <div class="time">
+            <span class="text"></span>
+        </div>
+    </div>
+"""
+
+
+font: 12px Literation Mono Powerline
+bottom: 4px
+.icon
+    font: 12px FontAwesome5FreeSolid
+    color: #D5C4A1
+.label
+    color: #D5C4A1
+.text
+    color: inherit
+.spotify
+    color: #1ED780
+    left: 10px
+    width: 70%
+.spotify.progress
+    color: #D5C4A1
+    width: @width
+    height: 2px
+.wifi
+    color: @wifisignal
+.battery
+    color: @charge
+.memory
+    color: @ramuse
+.cpu
+    color: @cpuuse
+.date
+    color: #B16286
+.time
+    color: #458588
+
+update: (output, domE1) ->

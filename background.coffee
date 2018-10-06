@@ -1,13 +1,12 @@
 refreshFrequency: false
 
-render: (output) ->
-  ""
+render: (output) -> ""
 
 style: """
-  top: 0
-  left: 0
-  height: 20px
-  width: 100%
-  background-color: #171717
-  z-index: -1
+    bottom 0px
+    left 0px
+    height 25px
+    width 100%
+    background-color rgba(10, 10, 10, 1.0)
+    z-index -1
 """

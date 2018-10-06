@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+
+wifi() {
+
+    wifi_info=$(~/.local/bin/airport -I)
+    ssid=$(echo "$wifi_info" | grep -e "\\sSSID" | sed -E "s/[[:space:]]+SSID: //")
+    signal=$(echo "$wifi_info" | grep "agrCtlRSSI" | sed -E "s/[[:space:]]+agrCtlRSSI: //")
+
+    printf "%s @ %s" "$ssid" "$signal"
+}
+
+battery() {
+    battery_info=$(pmset -g batt)
+    charging="$(echo "$battery_info" | awk -F '; *' 'NR==2 { print $2 }')"
+    percentage="$(echo "$battery_info" | grep -E '([0-9]+\%).*' -o --colour=auto | cut -f1 -d';' | tr -d "%")"
+    printf "%s @ %s" "$charging" "$percentage"
+}
+
+mem() {
+    pscmd=$(ps -A -o %mem)
+    memp=$(echo "$pscmd" | awk '{s+=$1} END {printf("%f",s);}')
+    printf "%.2f" "$memp"
+}
+
+cpu() {
+    ncores=$(sysctl -a | grep -e '^hw.ncpu:' | awk '{print $2;}')
+    pscmd=$(ps -A -o %cpu)
+    cpup=$(echo "$pscmd" | awk '{s+=$1} END {printf("%f",s);}')
+    printf "%.2f" "$(echo "($cpup / $ncores)" | bc -l)"
+}
+
+today() {
+    out="$(date +"%a %d %b")"
+    printf "%s" "$out"
+}
+
+clock() {
+    out="$(date +"%H:%M:%S")"
+    printf "%s" "$out"
+}
+
+"$@"
